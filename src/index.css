@@ -2,41 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* FlashStudy Design System - Modern Flashcard App */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark theme primary colors */
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 217 32.6% 17.5%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 217 32.6% 17.5%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Accent colors - Purple/Blue theme */
+    --primary: 250 84% 63%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217 32.6% 23%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217 32.6% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 266 85% 58%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 217 32.6% 25%;
+    --input: 217 32.6% 25%;
+    --ring: 250 84% 63%;
 
-    --radius: 0.5rem;
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(250 84% 63%), hsl(266 85% 58%));
+    --gradient-card: linear-gradient(135deg, hsl(217 32.6% 20%), hsl(217 32.6% 17.5%));
+    --gradient-hero: linear-gradient(135deg, hsl(250 84% 63% / 0.1), hsl(266 85% 58% / 0.1));
+    
+    --shadow-card: 0 4px 24px hsl(222 84% 4.9% / 0.4);
+    --shadow-card-hover: 0 8px 40px hsl(250 84% 63% / 0.2);
+    --shadow-flashcard: 0 12px 48px hsl(222 84% 4.9% / 0.6);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-card: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -55,42 +67,32 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
+  /* Light mode (optional) */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 250 84% 63%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 266 85% 58%;
     --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 250 84% 63%;
+    
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --shadow-card: 0 4px 24px hsl(222 84% 4.9% / 0.1);
+    --shadow-card-hover: 0 8px 40px hsl(250 84% 63% / 0.15);
+    --shadow-flashcard: 0 12px 48px hsl(222 84% 4.9% / 0.2);
   }
 }
 
@@ -100,6 +102,79 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+    background-image: var(--gradient-hero);
+  }
+
+  /* Custom animations */
+  @keyframes flip-card {
+    0% { transform: perspective(1000px) rotateY(0); }
+    50% { transform: perspective(1000px) rotateY(-90deg); }
+    100% { transform: perspective(1000px) rotateY(0); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--shadow-card); }
+    50% { box-shadow: var(--shadow-card-hover); }
+  }
+
+  @keyframes slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .flip-card {
+    animation: flip-card 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .slide-in-up {
+    animation: slide-in-up 0.4s ease-out;
+  }
+
+  .fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+}
+
+@layer components {
+  .flashcard-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .flashcard-face {
+    backface-visibility: hidden;
+    transition: var(--transition-card);
+  }
+
+  .flashcard-back {
+    transform: rotateY(180deg);
+  }
+
+  .nav-arrow {
+    @apply absolute top-1/2 -translate-y-1/2 p-4 rounded-full bg-card/80 backdrop-blur-sm shadow-lg transition-all duration-300 hover:bg-card hover:scale-110 cursor-pointer z-10;
+  }
+
+  .nav-arrow-left {
+    @apply left-4;
+  }
+
+  .nav-arrow-right {
+    @apply right-4;
   }
 }
